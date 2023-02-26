@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Adaptive_Alarm.Views.SettingsPage"
+             Title="Settings">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Settings"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand"
+                Scale="3"
+                Margin="10,30,10,30"/>
+            <Button Text="Change Connected Device Type" Margin="10,0,10,0" Clicked="ChangeDeviceButtonClicked"/>
+            <Picker Title="Device Type" Margin="10,0,10,20" x:Name="typePicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>None</x:String>
+                        <x:String>Fitbit</x:String>
+                        <x:String>Apple Watch</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+                <Picker.SelectedIndex>0</Picker.SelectedIndex>
+            </Picker>
+            <Button Text="Reset Sleep Data" Margin="10,0,10,0" Clicked="ClearButtonClicked"/>
+            <Label Text="Current working dataset began: " Margin="10,0,10,20" x:Name="datasetStartLabel"/>
+            <Label Text="How long does it take you to fall asleep?" Margin="10, 20, 10,0"/>
+            <Grid  >
+                <Entry x:Name="SleepTimeNumber"
+                   Keyboard="Numeric"
+                   VerticalOptions="StartAndExpand"
+                   Margin="10, 0, 20, 0"
+                       Grid.Column="0">
+                </Entry>
+                <Label Text="minutes" Margin="0, 20, 0, 0" Grid.Column="1"/>
+            </Grid>
+
+            <Button Text="Save"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="EndAndExpand"
+                    Margin="0, 0, 20, 20"
+                    Clicked="saveButtonClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
